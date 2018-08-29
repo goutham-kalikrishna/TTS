@@ -3,6 +3,7 @@ package com.me.tts;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -29,6 +30,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.me.tts.Activities.HomeActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +52,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
+            "foo@example.com:hello", "bar@example.com:world","goutham@tts.com:tts1234"
+
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -333,6 +337,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
+                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
